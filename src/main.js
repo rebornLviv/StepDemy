@@ -17,10 +17,12 @@ Vue.use(VueXgplayer, {
   },
   playsinline: true
 })
-Vue.use(VueVideoPlayer, /* {
+Vue.use(VueVideoPlayer,
+  /* {
   options: global default options,
   events: global videojs events
-} */)
+} */
+)
 Vue.use(vClickOutside)
 
 
@@ -31,7 +33,7 @@ new Vue({
   store,
   vuetify,
   render: h => h(App),
-  created(){
+  created() {
     var firebaseConfig = {
       apiKey: "AIzaSyBWv4P_gveY9kNFNS0iBlAvPlSwJPHnRYY",
       authDomain: "stepdemy.firebaseapp.com",
@@ -45,14 +47,14 @@ new Vue({
     // Initialize Firebase
     fb.initializeApp(firebaseConfig);
     fb.auth().onAuthStateChanged(
-      user=>{
-        if(user){
-          this.$store.dispatch('autoLoginUser',user)
+      user => {
+        if (user) {
+          this.$store.dispatch('autoLoginUser', user)
         }
       }
     )
-  
-  
-    
+
+
+
   }
 }).$mount('#app')
